@@ -26,7 +26,7 @@ export default function FoodCard({ food }) {
 
           <Link
             href={`/foods/${id}`}
-            className="flex-1 border border-gray-300 py-2 rounded-lg hover:bg-gray-100"
+            className="flex-1 border border-gray-300 py-2 rounded-lg hover:bg-gray-100 hover:text-black flex justify-center items-center"
           >
             View Details
           </Link>
