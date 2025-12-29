@@ -14,6 +14,12 @@ const getFoods = async (search) => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
   return data.foods || [];
 };
+
+export const metadata = {
+  title: 'All Foods - Yantun Khaijan',
+  description: 'Best fastfood restaurant in Noakhali',
+};
+
 const FoodsPage = async ({ searchParams }) => {
   const { search = "" } = await searchParams;
 
