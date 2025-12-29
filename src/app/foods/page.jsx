@@ -35,6 +35,7 @@ const FoodsPage = async ({ searchParams }) => {
             <FoodCard key={food.id} food={food}></FoodCard>
           ))}
         </div>
+
         <div className="w-[250px] border-2 rounded-xl p-4">
           <h2 className="text-2xl font-bold">Cart Items</h2> <hr />
           <CartItems></CartItems>

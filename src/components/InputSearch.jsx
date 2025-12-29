@@ -19,6 +19,7 @@ const InputSearch = () => {
 
     router.push(`?${newParams.toString()}`);
   };
+  
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -28,7 +29,7 @@ const InputSearch = () => {
           type="text"
           placeholder="Enter Food name"
         />
-        <button className="px-4 py-2 bg-yellow-500 text-black rounded cursor-pointer">
+        <button className="ml-1 px-4 py-3 border-2 border-yellow-500 bg-yellow-500 text-black rounded cursor-pointer">
           Search
         </button>
       </form>

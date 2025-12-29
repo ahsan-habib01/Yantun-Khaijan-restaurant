@@ -6,6 +6,7 @@ import ReviewLoading from "./ReviewLoading";
 const ReviewsPage = () => {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
+  
   useEffect(() => {
     fetch("https://taxi-kitchen-api.vercel.app/api/v1/reviews")
       .then((res) => res.json())
