@@ -16,7 +16,7 @@ const getFoods = async (search) => {
 };
 
 export const metadata = {
-  title: 'All Foods - Yantun Khaijan',
+  title: 'All Foods',
   description: 'Best fastfood restaurant in Noakhali',
 };
 

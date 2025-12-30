@@ -2,7 +2,7 @@ import React from 'react';
 import ReviewsPage from './ReviewPage';
 
 export const metadata = {
-  title: 'All Reviews - Yantun Khaijan',
+  title: 'All Reviews',
   description: 'Best fastfood restaurant in Noakhali',
 };
 

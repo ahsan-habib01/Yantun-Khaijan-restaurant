@@ -1,32 +1,42 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Link from "next/link";
-import CartProvider from "@/context/CartProvider";
+import { Geist, Geist_Mono, Poppins } from 'next/font/google';
+import './globals.css';
+import Link from 'next/link';
+import CartProvider from '@/context/CartProvider';
+import Image from 'next/image';
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
+});
+
+const poppins = Poppins({
+  weight: ['400', '500', '700'],
+  subsets: ['latin'],
 });
 
 export const metadata = {
-  title: "Yantun Khaijan",
-  description: "Best fastfood restaurant in Noakhali",
+  title: {
+    default: 'Yantun Khaijan',
+    template: '%s | Yantun Khaijan',
+  },
+  description: 'Best fastfood restaurant in Noakhali',
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${poppins.className} antialiased`}
       >
         <header className="px-5 py-2 flex  items-center justify-between gap-5 bg-stone-800">
           <Link href="/">
-            <img src="/logo.png" alt="" className="w-30" />
+            {/* <img src="/logo.png" alt="" className="w-30" /> */}
+            <Image width={160} height={40} src="/logo.png" alt=""></Image>
           </Link>
 
           <div className="space-x-5">
