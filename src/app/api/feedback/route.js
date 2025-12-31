@@ -1,5 +1,7 @@
-import { connect } from '@/app/lib/dbConnect';
-import { feedback } from '../route';
+// import { connect } from '@/app/lib/dbConnect';
+
+import { connect } from "@/app/lib/dbConnect";
+
 
 const feedbackCollection = connect('feedbacks');
 
@@ -9,6 +11,7 @@ export async function GET(request) {
 }
 
 export async function POST(request) {
+
   const { message } = await request.json();
 
   if (!message || typeof message !== 'string') {
@@ -19,13 +22,11 @@ export async function POST(request) {
   }
 
   const newFeedback = {
-    id: feedback.length + 1,
     message,
+    date: new Date().toISOString(),
   };
-  feedback.push(newFeedback);
 
-  return Response.json({
-    acheknowledged: true,
-    insertedId: newFeedback.id,
-  });
+  const result = await feedbackCollection.insertOne(newFeedback);
+  // revalidatePath('/feedback');
+  return Response.json(result);
 }
