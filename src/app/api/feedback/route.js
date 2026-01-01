@@ -27,6 +27,6 @@ export async function POST(request) {
   };
 
   const result = await feedbackCollection.insertOne(newFeedback);
-  // revalidatePath('/feedback');
+  revalidatePath('/feedback');
   return Response.json(result);
 }
