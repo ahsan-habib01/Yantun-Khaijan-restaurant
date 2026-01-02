@@ -5,20 +5,25 @@ export const metadata = {
   title: 'feedback',
 };
 
+export const dynamic = 'force-dynamic';
+
 const getFeedbacks = async () => {
-  const res = await fetch('http://localhost:3000/api/feedback');
+  const res = await fetch(`${process.env.NEXT_PUBLIC_server}/api/feedback`, {
+    // cache: 'force-cache',
+    next: { revalidate: 60 },
+  });
   return res.json();
 };
 
 // export const dynamic = "force-dynamic";
 
-// // const getFeedback = async () => {
-// //   const res = await fetch(`${process.env.NEXT_PUBLIC_server}/api/feedback/`, {
-// //     // cache: "force-cache",
-// //     next: { revalidate: 60 },
-// //   });
-// //   return await res.json();
-// // };
+// const getFeedback = async () => {
+//   const res = await fetch(`${process.env.NEXT_PUBLIC_server}/api/feedback/`, {
+//     // cache: "force-cache",
+//     next: { revalidate: 60 },
+//   });
+//   return await res.json();
+// };
 
 export default async function feedbackPage() {
   const feedback = await getFeedbacks();
