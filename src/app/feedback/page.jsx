@@ -1,21 +1,12 @@
-import FeedbackCard from "@/components/cards/FeedbackCard";
-import Link from "next/link";
-
+import FeedbackCard from '@/components/cards/FeedbackCard';
+import Link from 'next/link';
+import React from 'react';
+import { getFeedback } from '@/action/server/feedback';
 export const metadata = {
   title: 'feedback',
 };
 
 export const dynamic = 'force-dynamic';
-
-const getFeedbacks = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_server}/api/feedback`, {
-    // cache: 'force-cache',
-    next: { revalidate: 60 },
-  });
-  return res.json();
-};
-
-// export const dynamic = "force-dynamic";
 
 // const getFeedback = async () => {
 //   const res = await fetch(`${process.env.NEXT_PUBLIC_server}/api/feedback/`, {
@@ -25,8 +16,8 @@ const getFeedbacks = async () => {
 //   return await res.json();
 // };
 
-export default async function feedbackPage() {
-  const feedback = await getFeedbacks();
+const FeedbackPage = async () => {
+  const feedback = await getFeedback();
 
   return (
     <div>
@@ -47,4 +38,6 @@ export default async function feedbackPage() {
       </div>
     </div>
   );
-}
+};
+
+export default FeedbackPage;

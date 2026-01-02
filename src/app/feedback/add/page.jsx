@@ -1,7 +1,6 @@
-// import { connect } from '@/lib/dbConnect';
 import FeedbackForm from '@/components/forms/FeedbackForm';
 import React from 'react';
-import { postFeedback } from '@/action/server/page';
+import { postFeedback } from '@/action/server/feedback';
 
 const AddFeedback = () => {
   return (
